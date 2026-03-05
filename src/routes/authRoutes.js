@@ -6,6 +6,7 @@ import User from "../models/User.js";
 const router = express.Router();
 
 // POST /api/auth/register
+<<<<<<< HEAD
 // This route allows new users to create an account
 router.post("/register", async (req, res) => {
   try {
@@ -142,3 +143,22 @@ router.post("/login", async (req, res) => {
 });
 
 export default router;
+=======
+router.post("/register", async (req, res) => {
+  // - Validate input
+  // - Check if user exists
+  // - Hash password
+  // - Save user
+  // - Return user (without password)
+});
+
+// POST /api/auth/login
+router.post("/login", async (req, res) => {
+  // - Find user
+  // - Compare password
+  // - Generate JWT
+  // - Return token
+});
+
+export default router;
+>>>>>>> 26cd7c3dafbb1c2a8566f29e8f41af37520be5a7

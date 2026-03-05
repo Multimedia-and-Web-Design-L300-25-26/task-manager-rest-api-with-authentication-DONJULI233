@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
 import User from "../models/User.js";
 
+<<<<<<< HEAD
 // Authentication Middleware
 // This middleware:
 // 1. Extracts the JWT token from the Authorization header
@@ -59,3 +60,18 @@ const authMiddleware = async (req, res, next) => {
 };
 
 export default authMiddleware;
+=======
+
+// 1. Extract token from Authorization header
+// 2. Verify token
+// 3. Find user
+// 4. Attach user to req.user
+// 5. Call next()
+// 6. If invalid → return 401
+
+const authMiddleware = async (req, res, next) => {
+  //  implement here
+};
+
+export default authMiddleware;
+>>>>>>> 26cd7c3dafbb1c2a8566f29e8f41af37520be5a7
