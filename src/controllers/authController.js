@@ -2,13 +2,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import User from "../models/User.js";
 
-/**
- * Generate JWT Token
- * Helper function to create a JWT token for a user
- *
- * @param {string} userId - The user's ID
- * @returns {string} JWT token
- */
+
 const generateToken = (userId) => {
   return jwt.sign(
     { id: userId }, // Data to encode in token
@@ -17,33 +11,21 @@ const generateToken = (userId) => {
   );
 };
 
-/**
- * Register Controller
- * Handles user registration
- *
- * @param {object} req - Express request object
- * @param {object} res - Express response object
- */
-export const register = async (req, res) => {
+
+export const register = async (request, response) => {
   try {
     // Get data from request body
-    const { name, email, password, passwordConfirm } = req.body;
+    const { name, email, password } = req.body;
 
     // Validate that all required fields are provided
-    if (!name || !email || !password || !passwordConfirm) {
-      return res.status(400).json({
+    if (!name || !email || !password) {
+      return resp.status(400).json({
         success: false,
         message: "Please provide all required fields",
       });
     }
 
-    // Validate that passwords match
-    if (password !== passwordConfirm) {
-      return res.status(400).json({
-        success: false,
-        message: "Passwords do not match",
-      });
-    }
+
 
     // Check if email already exists
     const userExists = await User.findOne({
@@ -87,13 +69,7 @@ export const register = async (req, res) => {
   }
 };
 
-/**
- * Login Controller
- * Handles user authentication and JWT token generation
- *
- * @param {object} req - Express request object
- * @param {object} res - Express response object
- */
+
 export const login = async (req, res) => {
   try {
     // Get email and password from request body
