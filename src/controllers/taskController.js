@@ -1,12 +1,5 @@
 import Task from "../models/Task.js";
 
-/**
- * Create Task Controller
- * Handles task creation for the authenticated user
- *
- * @param {object} req - Express request object
- * @param {object} res - Express response object
- */
 export const createTask = async (req, res) => {
   try {
     // Get task data from request body
@@ -42,13 +35,6 @@ export const createTask = async (req, res) => {
   }
 };
 
-/**
- * Get All Tasks Controller
- * Retrieves all tasks belonging to the authenticated user
- *
- * @param {object} req - Express request object
- * @param {object} res - Express response object
- */
 export const getTasks = async (req, res) => {
   try {
     // Find all tasks where owner matches authenticated user ID
@@ -73,13 +59,6 @@ export const getTasks = async (req, res) => {
   }
 };
 
-/**
- * Delete Task Controller
- * Deletes a specific task (only if user is the owner)
- *
- * @param {object} req - Express request object
- * @param {object} res - Express response object
- */
 export const deleteTask = async (req, res) => {
   try {
     // Get task ID from URL parameters
@@ -122,13 +101,6 @@ export const deleteTask = async (req, res) => {
   }
 };
 
-/**
- * Update Task Controller
- * Updates a specific task (only if user is the owner)
- *
- * @param {object} req - Express request object
- * @param {object} res - Express response object
- */
 export const updateTask = async (req, res) => {
   try {
     // Get task ID from URL parameters
